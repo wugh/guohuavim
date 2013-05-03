@@ -1,3 +1,4 @@
+set nocompatible   " Disable vi-compatibility
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
@@ -14,7 +15,6 @@ set encoding=utf-8 " Necessary to show Unicode glyphs
 set termencoding=utf-8
 
 " vim common settting
-set nocompatible   " Disable vi-compatibility
 set laststatus=2   " Always show the statusline
 set number
 syntax on
