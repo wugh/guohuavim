@@ -7,6 +7,7 @@ let mapleader=","
 map <Leader>? :Helptags<CR>
 
 " Powerline fancy
+set t_Co=256
 let g:Powerline_symbols = 'fancy'
 
 " Vim Encoding setting
@@ -17,6 +18,7 @@ set termencoding=utf-8
 " vim common settting
 set laststatus=2   " Always show the statusline
 set number
+set nowrap
 syntax on
 filetype plugin indent on
 silent  colorscheme myvivid  " silent ignore warning
