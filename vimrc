@@ -21,5 +21,14 @@ set number
 set nowrap
 syntax on
 filetype plugin indent on
-silent  colorscheme myvivid  " silent ignore warning
+
+" color scheme for gui
+if has("gui_running")
+  colorscheme molokai
+else
+  silent  colorscheme myvivid  " silent ignore warning
+endif
+
+" settings for vim latex preview
+let g:livepreview_previewer = 'mupdf'
 
