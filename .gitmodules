@@ -13,6 +13,3 @@
 [submodule "bundle/vim-vividchalk"]
 	path = bundle/vim-vividchalk
 	url = https://github.com/tpope/vim-vividchalk.git
-[submodule "bundle/vim-latex-live-preview"]
-	path = bundle/vim-latex-live-preview
-	url = git@github.com:xuhdev/vim-latex-live-preview.git
