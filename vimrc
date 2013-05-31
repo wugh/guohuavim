@@ -29,6 +29,6 @@ else
   silent  colorscheme myvivid  " silent ignore warning
 endif
 
-" settings for vim latex preview
-let g:livepreview_previewer = 'mupdf'
-
+" Using the conceal Vim feature with LaTeX
+set cole=2
+let g:tex_conceal="adgm"
