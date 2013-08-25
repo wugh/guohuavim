@@ -1,6 +1,8 @@
-set nocompatible   " Disable vi-compatibility
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
+
+" Disable vi-compatibility
+set nocompatible   
 
 " maps
 let mapleader="," 
@@ -32,3 +34,5 @@ endif
 " Using the conceal Vim feature with LaTeX
 set cole=2
 let g:tex_conceal="adgm"
+
+autocmd BufNewFile,BufRead *.php set ts=4 sw=4 sts=4 tw=80
