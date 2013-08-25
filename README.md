@@ -17,9 +17,10 @@ git pull origin master
 git submodule foreach git pull origin master
 
 #添加一个模块（例如fugitive）
-cd ~/.vim
-mkdir ~/.vim/bundle
-git submodule add http://github.com/tpope/vim-fugitive.git bundle/fugitive
-git add .
-git commit -m "Install Fugitive.vim bundle as a submodule."
-git push origin master
+cd ~/.vim  
+mkdir ~/.vim/bundle  
+git submodule add http://github.com/tpope/vim-fugitive.git bundle/fugitive  
+git add .  
+git commit -m "Install Fugitive.vim bundle as a submodule."  
+git push origin master  
+
