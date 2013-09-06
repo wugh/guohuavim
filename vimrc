@@ -34,4 +34,5 @@ endif
 autocmd BufNewFile,BufRead *.php set ts=4 sw=4 sts=4 tw=80
 
 " vim latex settings
+set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'
