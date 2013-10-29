@@ -9,28 +9,35 @@ let mapleader=","
 map <Leader>? :Helptags<CR>
 
 " Powerline fancy
-set t_Co=256
-let g:Powerline_symbols = 'fancy'
+set rtp+=/home/tom/Projects/powerline-daemon/powerline/bindings/vim
+"python from powerline.vim import setup as powerline_setup
+"python powerline_setup()
+"python del powerline_setup
+"let g:Powerline_symbols = 'fancy'
 
 " Vim Encoding setting
-set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+" set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr
 set encoding=utf-8 " Necessary to show Unicode glyphs
 set termencoding=utf-8
 
 " vim common settting
+set t_Co=256
+filetype off
 set laststatus=2   " Always show the statusline
 set number
 set nowrap
-syntax on
 filetype plugin indent on
+syntax on
 
-" molokai setting
+" colorscheme setting
 let g:molokai_original = 1
 let g:rehash256 = 1
 " color scheme for gui
 if has("gui_running")
   colorscheme molokai
-  set guifont=Inconsolata\ for\ Powerline\ 11
+  "set guifont=Inconsolata\ for\ Powerline\ 11
+  set guifont=Inconsolata\ 12
   "set gcr=a:blinkon0
 else
   silent colorscheme molokai  " silent ignore warning
@@ -38,6 +45,10 @@ else
 endif
 
 autocmd BufNewFile,BufRead *.php set ts=4 sw=4 sts=4 tw=80
+
+" python-mode settings
+" Disable pylint checking every save
+let g:pymode_lint_write = 0
 
 " vim latex settings
 set grepprg=grep\ -nH\ $*
