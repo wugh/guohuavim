@@ -53,3 +53,7 @@ let g:pymode_lint_write = 0
 " vim latex settings
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'
+
+" setting syntastic
+let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
+let g:syntastic_ignore_files = ['\.py$']
