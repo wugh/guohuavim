@@ -39,6 +39,9 @@ if has("gui_running")
   "set guifont=Inconsolata\ for\ Powerline\ 11
   set guifont=Inconsolata\ 12
   "set gcr=a:blinkon0
+  set columns+=40
+  set lines=50
+  set colorcolumn=80
 else
   silent colorscheme molokai  " silent ignore warning
   set background=dark
@@ -57,3 +60,8 @@ let g:tex_flavor='latex'
 " setting syntastic
 let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
 let g:syntastic_ignore_files = ['\.py$']
+
+" nerd tree setting
+map <C-n> :NERDTreeToggle<CR>
+"autocmd vimenter * NERDTree
+"autocmd vimenter * if !argc() | NERDTree | endif
