@@ -1,3 +1,8 @@
+#简介
+使用github来管理vim插件非常适合跨机器使用
+在其他机器上面部署的时候只要把代码clone下
+来，再加几个链接就可以使用。
+
 #Installation:
 git clone https://github.com/wugh/guohuavim.git ~/.vim  
 ln -s ~/.vim/vimrc ~/.vimrc  
