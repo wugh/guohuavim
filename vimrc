@@ -65,3 +65,6 @@ let g:syntastic_ignore_files = ['\.py$']
 map <C-n> :NERDTreeToggle<CR>
 "autocmd vimenter * NERDTree
 "autocmd vimenter * if !argc() | NERDTree | endif
+
+" splite a line
+set formatoptions+=mM

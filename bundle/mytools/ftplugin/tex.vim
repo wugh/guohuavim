@@ -12,3 +12,16 @@ set sw=2
 " type in \ref{fig: and press <C-n> you will automatically cycle through
 " all the figure labels. Very useful!
 set iskeyword+=:
+" alt conflict with menu active
+set winaltkeys=no
+
+let g:Tex_CompileRule_pdf='xelatex -src-specials -interaction=nonstopmode $*'
+let g:Tex_DefaultTargetFormat='pdf'
+"let g:Tex_CompileRule_pdf='pdflatex -interaction=nonstopmode $*'
+let g:Tex_ViewRule_pdf='qpdfview --unique'
+let g:Tex_MultipleCompileFormats = 'dvi,pdf'
+
+set textwidth=78
+
+call IMAP('EFE', "\\begin{frame}\<CR>\\setbeamercovered{dynamic}\<CR>\\frametitle{<++>}\<CR><++>\<CR>\\end{frame}<++>", 'tex')
+"\\begin{frame}\<CR>\\setbeamercovered{dynamic}\<CR>\\frametitle{<++>}\<CR><++>\<CR>\\end{frame}<++>"

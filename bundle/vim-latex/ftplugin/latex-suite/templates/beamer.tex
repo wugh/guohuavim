@@ -1,0 +1,30 @@
+<+	+>	!comp!	!exe!
+%        File: !comp!expand("%:p:t")!comp!
+%     Created: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
+% Last Change: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
+%
+\documentclass{beamer}
+\usetheme{Boadilla}
+\usepackage{ctex}
+\usepackage[]{amsmath}
+\usepackage{graphicx}
+\renewcommand{\refname}{参考文献} 
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+
+\title{<+The Title of Beamer+>}
+\author{吴国华\quad{}2013110657}
+\institute[BUPT]{
+  计算机学院\\
+  智能科学与技术
+}
+\date{\today}
+
+\begin{document}
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\end{document}
+
+
