@@ -20,6 +20,10 @@ set rtp+=/home/tom/Projects/powerline-daemon/powerline/bindings/vim
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr
 set encoding=utf-8 " Necessary to show Unicode glyphs
 set termencoding=utf-8
+if has("win32")
+  set langmenu=zh_CN.UTF-8
+  language message zh_CN.UTF-8
+endif
 
 " vim common settting
 set t_Co=256
@@ -37,7 +41,11 @@ let g:rehash256 = 1
 if has("gui_running")
   colorscheme molokai
   "set guifont=Inconsolata\ for\ Powerline\ 11
-  set guifont=Inconsolata\ 12
+  if has("win32")
+    set guifont=Consolas:h12:cANSI
+  elseif has("gui_gtk2")
+    set guifont=Inconsolata\ 12
+  endif
   "set gcr=a:blinkon0
   set columns+=40
   set lines=50
@@ -51,7 +59,7 @@ autocmd BufNewFile,BufRead *.php set ts=4 sw=4 sts=4 tw=80
 
 " python-mode settings
 " Disable pylint checking every save
-let g:pymode_lint_write = 0
+" let g:pymode_lint_write = 0
 
 " vim latex settings
 set grepprg=grep\ -nH\ $*
