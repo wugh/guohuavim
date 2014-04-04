@@ -35,10 +35,8 @@ filetype plugin indent on
 syntax on
 
 " colorscheme setting
-let g:molokai_original = 1
-let g:rehash256 = 1
-" color scheme for gui
 if has("gui_running")
+  " color scheme for gui
   colorscheme molokai
   "set guifont=Inconsolata\ for\ Powerline\ 11
   if has("win32")
@@ -51,6 +49,8 @@ if has("gui_running")
   set lines=50
   set colorcolumn=80
 else
+  let g:rehash256 = 1
+  "let g:molokai_original = 1
   silent colorscheme molokai  " silent ignore warning
   set background=dark
 endif
@@ -75,4 +75,7 @@ map <C-n> :NERDTreeToggle<CR>
 "autocmd vimenter * if !argc() | NERDTree | endif
 
 " splite a line
-set formatoptions+=mM
+"set formatoptions+=mM
+
+" cursor blinking
+set gcr=a:block-blinkon0 
