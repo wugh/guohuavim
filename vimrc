@@ -43,6 +43,7 @@ if has("gui_running")
     set guifont=Consolas:h12:cANSI
   elseif has("gui_gtk2")
     set guifont=Inconsolata\ 12
+    set guifontwide=Microsoft\ Yahei\ 12,WenQuanYi\ Zen\ Hei\ 12
   endif
   "set gcr=a:blinkon0
   set columns+=40
@@ -75,7 +76,7 @@ map <C-n> :NERDTreeToggle<CR>
 "autocmd vimenter * if !argc() | NERDTree | endif
 
 " splite a line
-"set formatoptions+=mM
+set formatoptions+=mM
 
 " cursor blinking
 set gcr=a:block-blinkon0 
