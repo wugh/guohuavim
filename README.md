@@ -41,4 +41,6 @@ git rm asubmodule
 # Note: asubmodule (no trailing slash)
 # or, if you want to leave it in your working tree
 git rm --cached asubmodule
+# Delete file in git folder
+rm -rf .git/modules/path_to_submodule
 ```
