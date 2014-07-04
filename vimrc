@@ -8,13 +8,6 @@ set nocompatible
 let mapleader="," 
 map <Leader>? :Helptags<CR>
 
-" Powerline fancy
-set rtp+=/home/tom/Projects/powerline-daemon/powerline/bindings/vim
-"python from powerline.vim import setup as powerline_setup
-"python powerline_setup()
-"python del powerline_setup
-"let g:Powerline_symbols = 'fancy'
-
 " Vim Encoding setting
 " set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr
@@ -38,11 +31,10 @@ syntax on
 if has("gui_running")
   " color scheme for gui
   colorscheme molokai
-  "set guifont=Inconsolata\ for\ Powerline\ 11
   if has("win32")
     set guifont=Consolas:h12:cANSI
   elseif has("gui_gtk2")
-    set guifont=Inconsolata\ 12
+    set guifont=Inconsolata-dz\ for\ Powerline\ 12
     set guifontwide=Microsoft\ Yahei\ 12,WenQuanYi\ Zen\ Hei\ 12
   endif
   "set gcr=a:blinkon0
@@ -56,7 +48,11 @@ else
   set background=dark
 endif
 
-autocmd BufNewFile,BufRead *.php set ts=4 sw=4 sts=4 tw=80
+autocmd FileType php setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=80
+autocmd FileType coffee,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=80
+autocmd FileType html,htmldjango,xhtml,haml setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=0
+autocmd FileType sass,scss,css setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=80
+autocmd FileType mkd setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=80
 
 " python-mode settings
 " Disable pylint checking every save
@@ -89,3 +85,8 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+" Powerline
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
