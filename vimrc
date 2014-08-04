@@ -77,14 +77,11 @@ set formatoptions+=mM
 " cursor blinking
 "set gcr=a:block-blinkon0 
 
-" SnipMate trigger configuration. Do not use <tab> if you use
-" https://github.com/Valloric/YouCompleteMe.
-imap <C-c> <Plug>snipMateNextOrTrigger
+" Powerline is replaced by airline
+let g:airline_powerline_fonts = 1
 
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
-" Powerline
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+" ultisnip setting
+let g:UltiSnipsExpandTrigger       = "<c-j>"
+let g:UltiSnipsJumpForwardTrigger  = "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-p>"
+let g:UltiSnipsListSnippets        = "<c-k>" "List possible snippets based on current file
