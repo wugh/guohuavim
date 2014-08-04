@@ -48,7 +48,7 @@ rm -rf .git/modules/path_to_submodule
 # 目前使用的模块
 1. [pathogen][pathogen]用来组织插件
 1. [molokai][molokai]配色
-1. [snipmate][snipmate]插入一些常用代码段，依赖与[tlib][tlib]和[vim-addon-mw-utils][mw-utils]
+1. [ultisnips][ultisnips]插入一些常用代码段
 1. [ctrlp][ctrlp]用来向sublime的`Ctrl-P`一样搜索代码
 1. [ack][ack]调用`ack`进行文件内容匹配
 1. [YouCompleteMe][ycm]进行代码补全
@@ -56,9 +56,7 @@ rm -rf .git/modules/path_to_submodule
 
 [vim-markdown]: http://github.com/tpope/vim-markdown "vim-markdown"
 [molokai]: http://github.com/tomasr/molokai "molokai"
-[snipmate]: https://github.com/garbas/vim-snipmate "vim-snipmate"
-[mw-utils]: https://github.com/marcweber/vim-addon-mw-utils
-[tlib]: https://github.com/tomtom/tlib_vim
+[ultisnips]: https://github.com/SirVer/ultisnips "ultisnips"
 [ctrlp]: https://github.com/kien/ctrlp.vim
 [ack]: https://github.com/mileszs/ack.vim
 [ycm]: https://github.com/Valloric/YouCompleteMe/ "title"
