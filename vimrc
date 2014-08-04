@@ -48,15 +48,12 @@ else
   set background=dark
 endif
 
-autocmd FileType php setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=80
-autocmd FileType coffee,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=80
+autocmd FileType php setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=78
+autocmd FileType coffee,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=78
 autocmd FileType html,htmldjango,xhtml,haml setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=0
-autocmd FileType sass,scss,css setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=80
-autocmd FileType mkd setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=80
-
-" python-mode settings
-" Disable pylint checking every save
-" let g:pymode_lint_write = 0
+autocmd FileType sass,scss,css setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=78
+autocmd FileType mkd setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=78
+autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=78 expandtab
 
 " vim latex settings
 set grepprg=grep\ -nH\ $*
@@ -64,7 +61,6 @@ let g:tex_flavor='latex'
 
 " setting syntastic
 let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
-let g:syntastic_ignore_files = ['\.py$']
 
 " nerd tree setting
 map <C-n> :NERDTreeToggle<CR>
@@ -74,9 +70,6 @@ map <C-n> :NERDTreeToggle<CR>
 " splite a line
 set formatoptions+=mM
 
-" cursor blinking
-"set gcr=a:block-blinkon0 
-
 " Powerline is replaced by airline
 let g:airline_powerline_fonts = 1
 
@@ -85,3 +78,10 @@ let g:UltiSnipsExpandTrigger       = "<c-j>"
 let g:UltiSnipsJumpForwardTrigger  = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-p>"
 let g:UltiSnipsListSnippets        = "<c-k>" "List possible snippets based on current file
+
+" YCM
+let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
+let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
+let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language's keyword
+let g:ycm_complete_in_comments = 1 " Completion in comments
+let g:ycm_complete_in_strings = 1 " Completion in string
