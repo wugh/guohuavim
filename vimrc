@@ -61,7 +61,6 @@ let g:tex_flavor='latex'
 
 " setting syntastic
 let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
-let g:syntastic_ignore_files = ['\.py$']
 
 " nerd tree setting
 map <C-n> :NERDTreeToggle<CR>
