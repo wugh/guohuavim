@@ -10,7 +10,7 @@ map <Leader>? :Helptags<CR>
 
 " Vim Encoding setting
 " set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
-set fileencodings=ucs-bom,utf-8,gb2312,cp936,gb18030,big5,euc-jp,euc-kr
+set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr
 set encoding=utf-8 " Necessary to show Unicode glyphs
 set termencoding=utf-8
 if has("win32")
@@ -48,15 +48,12 @@ else
   set background=dark
 endif
 
-autocmd FileType php setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=80
-autocmd FileType coffee,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=80
-autocmd FileType html,htmldjango,xhtml,haml setlocal tabstop=4 shiftwidth=4 softtabstop=4 et
-autocmd FileType sass,scss,css setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=80
-autocmd FileType mkd setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=80
-
-" python-mode settings
-" Disable pylint checking every save
-" let g:pymode_lint_write = 0
+autocmd FileType php setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=78
+autocmd FileType coffee,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=78
+autocmd FileType html,htmldjango,xhtml,haml setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=0
+autocmd FileType sass,scss,css setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=78
+autocmd FileType mkd setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=78
+autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=78 expandtab
 
 " vim latex settings
 set grepprg=grep\ -nH\ $*
@@ -74,17 +71,19 @@ map <C-n> :NERDTreeToggle<CR>
 " splite a line
 set formatoptions+=mM
 
-" cursor blinking
-"set gcr=a:block-blinkon0 
+" Powerline is replaced by airline
+let g:airline_powerline_fonts = 1
 
-" SnipMate trigger configuration. Do not use <tab> if you use
-" https://github.com/Valloric/YouCompleteMe.
-imap <C-c> <Plug>snipMateNextOrTrigger
+" ultisnip setting
+let g:UltiSnipsExpandTrigger       = "<c-j>"
+let g:UltiSnipsJumpForwardTrigger  = "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-p>"
+let g:UltiSnipsListSnippets        = "<c-k>" "List possible snippets based on current file
 
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
-" Powerline
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+" YCM
+let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
+let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
+let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language's keyword
+let g:ycm_complete_in_comments = 1 " Completion in comments
+let g:ycm_complete_in_strings = 1 " Completion in string
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
