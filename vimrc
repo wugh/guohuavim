@@ -63,7 +63,7 @@ let g:tex_flavor='latex'
 let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
 
 " nerd tree setting
-map <C-n> :NERDTreeToggle<CR>
+map <F2> :NERDTreeToggle<CR>
 "autocmd vimenter * NERDTree
 "autocmd vimenter * if !argc() | NERDTree | endif
 
@@ -74,10 +74,10 @@ set formatoptions+=mM
 let g:airline_powerline_fonts = 1
 
 " ultisnip setting
-let g:UltiSnipsExpandTrigger       = "<c-j>"
-let g:UltiSnipsJumpForwardTrigger  = "<c-j>"
+let g:UltiSnipsExpandTrigger       = "<c-k>"
+let g:UltiSnipsJumpForwardTrigger  = "<c-k>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-p>"
-let g:UltiSnipsListSnippets        = "<c-k>" "List possible snippets based on current file
+let g:UltiSnipsListSnippets        = "<F3>" "List possible snippets based on current file
 
 " YCM
 let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
