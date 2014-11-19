@@ -18,7 +18,8 @@ set winaltkeys=no
 let g:Tex_CompileRule_pdf='xelatex -src-specials -interaction=nonstopmode $*'
 let g:Tex_DefaultTargetFormat='pdf'
 "let g:Tex_CompileRule_pdf='pdflatex -interaction=nonstopmode $*'
-let g:Tex_ViewRule_pdf='qpdfview --unique'
+"let g:Tex_ViewRule_pdf='qpdfview --unique'
+let g:Tex_ViewRule_pdf='zathura'
 let g:Tex_MultipleCompileFormats = 'dvi,pdf'
 
 "set textwidth=78

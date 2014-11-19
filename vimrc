@@ -52,8 +52,9 @@ autocmd FileType php setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=78
 autocmd FileType coffee,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=78
 autocmd FileType html,htmldjango,xhtml,haml setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=0
 autocmd FileType sass,scss,css setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=78
-autocmd FileType mkd setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=78
-autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=78 expandtab
+autocmd FileType markdown setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=78
+autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
+autocmd FileType yaml setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 
 " vim latex settings
 set grepprg=grep\ -nH\ $*
@@ -61,6 +62,7 @@ let g:tex_flavor='latex'
 
 " setting syntastic
 let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
+let g:syntastic_python_checkers = ['flake8']
 
 " nerd tree setting
 map <F2> :NERDTreeToggle<CR>
