@@ -84,7 +84,7 @@ endif
 set t_Co=256
 set history=1000
 set cursorline                  " Highlight current line
-set colorcolumn=79              " Color column is 79
+set colorcolumn=80              " Color column is 79
 set showmode                    " Display the current mode
 set backspace=indent,eol,start  " Backspace for dummies
 set linespace=0                 " No extra spaces between rows
@@ -152,6 +152,7 @@ autocmd FileType python setlocal tabstop=8 shiftwidth=4 softtabstop=4 expandtab
 autocmd FileType cpp setlocal tabstop=8 shiftwidth=4 softtabstop=4 expandtab
 autocmd BufRead,BufNewFile *.html setlocal tabstop=8 shiftwidth=2 softtabstop=2 expandtab
 autocmd BufRead,BufNewFile *.js setlocal tabstop=8 shiftwidth=2 softtabstop=2 expandtab
+autocmd BufRead,BufNewFile *.json setlocal tabstop=8 shiftwidth=2 softtabstop=2 expandtab
 
 " indent guide
 let g:indent_guides_start_level = 2
@@ -184,3 +185,5 @@ nmap <C-_>e :cs find e <C-R>=expand("<cword>")<CR><CR>
 nmap <C-_>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
 nmap <C-_>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+
+let g:go_version_warning = 0
