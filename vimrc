@@ -10,9 +10,6 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" syntax check
-" Plugin 'scrooloose/syntastic'
-
 " vimrc default
 Plugin 'tpope/vim-sensible'
 
@@ -23,15 +20,18 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 
 " snip
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+" Track the engine.
+Plugin 'SirVer/ultisnips'
+" Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 
+" Plugin 'Valloric/YouCompleteMe'
+
 " file search
+Plugin 'junegunn/fzf.vim'
 "Plugin 'Shougo/unite.vim'
 "Plugin 'Shougo/unite-outline'
-Plugin 'ctrlpvim/ctrlp.vim'
+"Plugin 'ctrlpvim/ctrlp.vim'
 
 " colorscheme
 Plugin 'morhetz/gruvbox'
@@ -53,6 +53,14 @@ Plugin 'majutsushi/tagbar'
 
 " vim go
 Plugin 'fatih/vim-go'
+
+Plugin 'solarnz/thrift.vim'
+
+" ale
+Plugin 'w0rp/ale'
+
+" ag
+Plugin 'rking/ag.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -149,9 +157,13 @@ let g:syntastic_python_checkers = ['flake8']
 
 " tab setting
 autocmd FileType python setlocal tabstop=8 shiftwidth=4 softtabstop=4 expandtab
+autocmd FileType sh setlocal tabstop=8 shiftwidth=4 softtabstop=4 expandtab
 autocmd FileType cpp setlocal tabstop=8 shiftwidth=4 softtabstop=4 expandtab
+autocmd FileType matlab setlocal tabstop=8 shiftwidth=4 softtabstop=4 expandtab
+autocmd FileType json setlocal tabstop=8 shiftwidth=2 softtabstop=2 expandtab
 autocmd BufRead,BufNewFile *.html setlocal tabstop=8 shiftwidth=2 softtabstop=2 expandtab
 autocmd BufRead,BufNewFile *.js setlocal tabstop=8 shiftwidth=2 softtabstop=2 expandtab
+autocmd BufRead,BufNewFile *.tex setlocal tabstop=8 shiftwidth=2 softtabstop=2 expandtab
 
 " indent guide
 let g:indent_guides_start_level = 2
@@ -184,3 +196,27 @@ nmap <C-_>e :cs find e <C-R>=expand("<cword>")<CR><CR>
 nmap <C-_>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
 nmap <C-_>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+
+" snip
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" ycm
+nmap <leader>gd :YcmCompleter GoToDefinition <CR>
+nnoremap <leader>gs :vsplit <bar> :YcmCompleter GoToDefinition <CR>
+let g:ycm_auto_trigger=1
+silent! py3 pass
+
+" pylint
+let b:ale_linters = {'python': ['pyls']}
+let g:ale_completion_enabled = 1
+set completeopt=menu,menuone,preview,noselect,noinsert
+
+" goto file
+map gf :vertical wincmd f<CR>
+
+map <F1> 0iQ-I<Tab><Esc>j
+map <F2> 0iA-I<Tab><Esc>j
+map <F3> 0iQ-B<Tab><Esc>j
+map <F4> 0iA-I<Tab><Esc>j
