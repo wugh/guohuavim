@@ -92,7 +92,7 @@ endif
 set t_Co=256
 set history=1000
 set cursorline                  " Highlight current line
-set colorcolumn=79              " Color column is 79
+set colorcolumn=80              " Color column is 79
 set showmode                    " Display the current mode
 set backspace=indent,eol,start  " Backspace for dummies
 set linespace=0                 " No extra spaces between rows
@@ -164,6 +164,7 @@ autocmd FileType json setlocal tabstop=8 shiftwidth=2 softtabstop=2 expandtab
 autocmd BufRead,BufNewFile *.html setlocal tabstop=8 shiftwidth=2 softtabstop=2 expandtab
 autocmd BufRead,BufNewFile *.js setlocal tabstop=8 shiftwidth=2 softtabstop=2 expandtab
 autocmd BufRead,BufNewFile *.tex setlocal tabstop=8 shiftwidth=2 softtabstop=2 expandtab
+autocmd BufRead,BufNewFile *.json setlocal tabstop=8 shiftwidth=2 softtabstop=2 expandtab
 
 " indent guide
 let g:indent_guides_start_level = 2
@@ -220,3 +221,4 @@ map <F1> 0iQ-I<Tab><Esc>j
 map <F2> 0iA-I<Tab><Esc>j
 map <F3> 0iQ-B<Tab><Esc>j
 map <F4> 0iA-I<Tab><Esc>j
+let g:go_version_warning = 0
