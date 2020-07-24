@@ -2,68 +2,72 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" set rtp+=~/.vim/bundle/Vundle.vim
+" call vundle#begin()
+call plug#begin('~/.vim/plugged')
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" Plugin 'VundleVim/Vundle.vim'
 
 " vimrc default
-Plugin 'tpope/vim-sensible'
+Plug 'tpope/vim-sensible'
 
 " vim git
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 " surround plugin
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 
 " snip
 " Track the engine.
-Plugin 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 
 " Plugin 'Valloric/YouCompleteMe'
 
 " file search
-Plugin 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim'
 "Plugin 'Shougo/unite.vim'
 "Plugin 'Shougo/unite-outline'
 "Plugin 'ctrlpvim/ctrlp.vim'
 
 " colorscheme
-Plugin 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
 
 " status bar
-Plugin 'bling/vim-airline'
+Plug 'bling/vim-airline'
 
 " tmux
-Plugin 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-navigator'
 
 " indent_guides
-Plugin 'nathanaelkane/vim-indent-guides'
+Plug 'nathanaelkane/vim-indent-guides'
 
 " python pep8 indent
-Plugin 'hynek/vim-python-pep8-indent'
+Plug 'hynek/vim-python-pep8-indent'
 
 " tagbar
-Plugin 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
 
 " vim go
-Plugin 'fatih/vim-go'
+Plug 'fatih/vim-go'
 
-Plugin 'solarnz/thrift.vim'
+Plug 'solarnz/thrift.vim'
 
 " ale
-Plugin 'w0rp/ale'
+Plug 'w0rp/ale'
 
 " ag
-Plugin 'rking/ag.vim'
+Plug 'rking/ag.vim'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+" call vundle#end()            " required
+" Initialize plugin system
+call plug#end()
+
 filetype plugin indent on    " required
 
 " colorscheme
