@@ -1,90 +1,229 @@
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect()
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-" Disable vi-compatibility
-set nocompatible   
+" set the runtime path to include Vundle and initialize
+" set rtp+=~/.vim/bundle/Vundle.vim
+" call vundle#begin()
+call plug#begin('~/.vim/plugged')
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+" Plugin 'VundleVim/Vundle.vim'
+
+" vimrc default
+Plug 'tpope/vim-sensible'
+
+" vim git
+Plug 'tpope/vim-fugitive'
+
+" surround plugin
+Plug 'tpope/vim-surround'
+
+" snip
+" Track the engine.
+"Plug 'SirVer/ultisnips'
+" Snippets are separated from the engine. Add this if you want them:
+"Plug 'honza/vim-snippets'
+
+" Plugin 'Valloric/YouCompleteMe'
+
+" file search
+Plug 'junegunn/fzf.vim'
+"Plugin 'Shougo/unite.vim'
+"Plugin 'Shougo/unite-outline'
+"Plugin 'ctrlpvim/ctrlp.vim'
+
+" colorscheme
+Plug 'morhetz/gruvbox'
+
+" status bar
+Plug 'bling/vim-airline'
+
+" tmux
+Plug 'christoomey/vim-tmux-navigator'
+
+" indent_guides
+Plug 'nathanaelkane/vim-indent-guides'
+
+" python pep8 indent
+Plug 'hynek/vim-python-pep8-indent'
+
+" tagbar
+Plug 'majutsushi/tagbar'
+
+" vim go
+Plug 'fatih/vim-go'
+
+Plug 'solarnz/thrift.vim'
+
+" ale
+Plug 'w0rp/ale'
+
+" ag
+Plug 'rking/ag.vim'
+
+" All of your Plugins must be added before the following line
+" call vundle#end()            " required
+" Initialize plugin system
+call plug#end()
+
+filetype plugin indent on    " required
+
+" colorscheme
+set background=dark    " Setting dark mode
+colorscheme gruvbox
 
 " maps
-let mapleader="," 
-map <Leader>? :Helptags<CR>
+let mapleader=","
 
 " Vim Encoding setting
-" set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr
-set encoding=utf-8 " Necessary to show Unicode glyphs
-set termencoding=utf-8
 if has("win32")
   set langmenu=zh_CN.UTF-8
   language message zh_CN.UTF-8
 endif
 
-" vim common settting
-set t_Co=256
-filetype off
-set laststatus=2   " Always show the statusline
-set number
-set nowrap
-filetype plugin indent on
-syntax on
-
-" colorscheme setting
-if has("gui_running")
-  " color scheme for gui
-  colorscheme molokai
-  if has("win32")
-    set guifont=Consolas:h12:cANSI
-  elseif has("gui_gtk2")
-    set guifont=Inconsolata-dz\ for\ Powerline\ 12
-    set guifontwide=Microsoft\ Yahei\ 12,WenQuanYi\ Zen\ Hei\ 12
-  endif
-  "set gcr=a:blinkon0
-  set columns+=40
-  set lines=50
-  set colorcolumn=80
-else
-  let g:rehash256 = 1
-  "let g:molokai_original = 1
-  silent colorscheme molokai  " silent ignore warning
-  set background=dark
+" GUI font setting
+if has("win32")
+  set guifont=Consolas:h12:cANSI
+elseif has("gui_gtk2")
+  set guifont=Inconsolata-dz\ for\ Powerline\ 12
+  set guifontwide=Microsoft\ Yahei\ 12,WenQuanYi\ Zen\ Hei\ 12
 endif
 
-autocmd FileType php setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=78
-autocmd FileType coffee,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=78
-autocmd FileType html,htmldjango,xhtml,haml setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=0
-autocmd FileType sass,scss,css setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=78
-autocmd FileType markdown setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=78
-autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
-autocmd FileType yaml setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
+" Common setting
+set t_Co=256
+set history=1000
+set cursorline                  " Highlight current line
+set colorcolumn=80              " Color column is 79
+set showmode                    " Display the current mode
+set backspace=indent,eol,start  " Backspace for dummies
+set linespace=0                 " No extra spaces between rows
+set number                      " Line numbers on
+set showmatch                   " Show matching brackets/parenthesis
+set incsearch                   " Find as you type search
+set hlsearch                    " Highlight search terms
+set ignorecase                  " Case insensitive search
+set smartcase                   " Case sensitive when upper case present
+set wildmenu                    " Show list instead of just completing
+set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
+set whichwrap=b,s,<,>,[,]       " Backspace and cursor keys wrap too
+set scrolljump=5                " Lines to scroll when cursor leaves screen
+set scrolloff=3                 " Minimum lines to keep above and below cursor
+set foldenable                  " Auto fold code
+set list
+"set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
+set nowrap                      " Do not wrap line
+set formatoptions+=mM           " Break line as Chinese preference
+set splitright                  " Puts new vsplit windows to the right of the current
+set splitbelow                  " Puts new split windows to the bottom of the current
+set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
 
-" vim latex settings
-set grepprg=grep\ -nH\ $*
-let g:tex_flavor='latex'
+cnoremap %% <C-R>=fnameescape(expand('%:h')).'/'<cr>
+map <leader>ew :e %%
+map <leader>es :sp %%
+map <leader>ev :vsp %%
+map <leader>et :tabe %%
+
+" Restore cursor to file position in previous editing session
+function! ResCur()
+    if line("'\"") <= line("$")
+        silent! normal! g`"
+        return 1
+    endif
+endfunction
+augroup resCur
+    autocmd!
+    autocmd BufWinEnter * call ResCur()
+augroup END
+
+" Wrapped lines goes down/up to next row, rather than next line in file.
+noremap j gj
+noremap k gk
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+
+" switch panel
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+
+" buffer
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [B :bfirst<CR>
+nnoremap <silent> ]B :blast<CR>
 
 " setting syntastic
-let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
 let g:syntastic_python_checkers = ['flake8']
 
-" nerd tree setting
-map <F2> :NERDTreeToggle<CR>
-"autocmd vimenter * NERDTree
-"autocmd vimenter * if !argc() | NERDTree | endif
+" tab setting
+autocmd FileType python setlocal tabstop=8 shiftwidth=4 softtabstop=4 expandtab
+autocmd FileType sh setlocal tabstop=8 shiftwidth=4 softtabstop=4 expandtab
+autocmd FileType cpp setlocal tabstop=8 shiftwidth=4 softtabstop=4 expandtab
+autocmd FileType matlab setlocal tabstop=8 shiftwidth=4 softtabstop=4 expandtab
+autocmd FileType json setlocal tabstop=8 shiftwidth=2 softtabstop=2 expandtab
+autocmd BufRead,BufNewFile *.html setlocal tabstop=8 shiftwidth=2 softtabstop=2 expandtab
+autocmd BufRead,BufNewFile *.js setlocal tabstop=8 shiftwidth=2 softtabstop=2 expandtab
+autocmd BufRead,BufNewFile *.tex setlocal tabstop=8 shiftwidth=2 softtabstop=2 expandtab
+autocmd BufRead,BufNewFile *.json setlocal tabstop=8 shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType lua setlocal tabstop=8 shiftwidth=4 softtabstop=4 expandtab
 
-" splite a line
-set formatoptions+=mM
+" indent guide
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+let g:indent_guides_enable_on_vim_startup = 1
 
-" Powerline is replaced by airline
-let g:airline_powerline_fonts = 1
+" unite file
 
-" ultisnip setting
-let g:UltiSnipsExpandTrigger       = "<c-k>"
-let g:UltiSnipsJumpForwardTrigger  = "<c-k>"
-let g:UltiSnipsJumpBackwardTrigger = "<c-p>"
-let g:UltiSnipsListSnippets        = "<F3>" "List possible snippets based on current file
+nnoremap <leader>f :<C-u>Unite buffer file<CR>
 
-" YCM
-let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
-let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
-let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language's keyword
-let g:ycm_complete_in_comments = 1 " Completion in comments
-let g:ycm_complete_in_strings = 1 " Completion in string
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+au FileType python map <silent> <leader>b oimport pudb; pudb.set_trace()<esc>
+au FileType python map <silent> <leader>B Oimport pudb; pudb.set_trace()<esc>
+
+" tagbar
+nmap <F8> :TagbarToggle<CR>
+
+"folding settings
+set foldmethod=indent   "fold based on indent
+set foldnestmax=10      "deepest fold is 10 levels
+set nofoldenable        "dont fold by default
+set foldlevel=1         "this is just what i use
+
+" cscope
+set cscopequickfix=s-,c-,d-,i-,t-,e-
+nmap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <C-_>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-_>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <C-_>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <C-_>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <C-_>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+nmap <C-_>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+
+" snip
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" ycm
+nmap <leader>gd :YcmCompleter GoToDefinition <CR>
+nnoremap <leader>gs :vsplit <bar> :YcmCompleter GoToDefinition <CR>
+let g:ycm_auto_trigger=1
+silent! py3 pass
+
+" pylint
+let b:ale_linters = {'python': ['pyls']}
+let g:ale_completion_enabled = 1
+set completeopt=menu,menuone,preview,noselect,noinsert
+
+" goto file
+map gf :vertical wincmd f<CR>
+
+map <F1> 0iQ-I<Tab><Esc>j
+map <F2> 0iA-I<Tab><Esc>j
+map <F3> 0iQ-B<Tab><Esc>j
+map <F4> 0iA-I<Tab><Esc>j
+let g:go_version_warning = 0
