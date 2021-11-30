@@ -22,9 +22,9 @@ Plug 'tpope/vim-surround'
 
 " snip
 " Track the engine.
-Plug 'SirVer/ultisnips'
+"Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
-Plug 'honza/vim-snippets'
+"Plug 'honza/vim-snippets'
 
 " Plugin 'Valloric/YouCompleteMe'
 
@@ -113,7 +113,7 @@ set scrolljump=5                " Lines to scroll when cursor leaves screen
 set scrolloff=3                 " Minimum lines to keep above and below cursor
 set foldenable                  " Auto fold code
 set list
-set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
+"set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
 set nowrap                      " Do not wrap line
 set formatoptions+=mM           " Break line as Chinese preference
 set splitright                  " Puts new vsplit windows to the right of the current
@@ -169,6 +169,7 @@ autocmd BufRead,BufNewFile *.html setlocal tabstop=8 shiftwidth=2 softtabstop=2 
 autocmd BufRead,BufNewFile *.js setlocal tabstop=8 shiftwidth=2 softtabstop=2 expandtab
 autocmd BufRead,BufNewFile *.tex setlocal tabstop=8 shiftwidth=2 softtabstop=2 expandtab
 autocmd BufRead,BufNewFile *.json setlocal tabstop=8 shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType lua setlocal tabstop=8 shiftwidth=4 softtabstop=4 expandtab
 
 " indent guide
 let g:indent_guides_start_level = 2
