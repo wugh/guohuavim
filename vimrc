@@ -83,6 +83,7 @@ if has("win32")
   set langmenu=zh_CN.UTF-8
   language message zh_CN.UTF-8
 endif
+set encoding=utf-8
 
 " GUI font setting
 if has("win32")
